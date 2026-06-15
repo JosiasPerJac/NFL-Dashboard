@@ -1,15 +1,15 @@
-import type { GameRow } from "../data/dashboardMock";
+import type { NflGame } from "../types/nflGame";
 
 type RecentGamesTableProps = {
-  games: GameRow[];
+  games: NflGame[];
 };
 
 export function RecentGamesTable({ games }: RecentGamesTableProps) {
   return (
     <section className="table-card" id="games">
-      <div className="table-header">
+      <div className="table-title">
         <h3>Recent Games</h3>
-        <button className="table-action">View Full Game Table →</button>
+        <button>View Full Game Table →</button>
       </div>
 
       <table>
@@ -30,20 +30,18 @@ export function RecentGamesTable({ games }: RecentGamesTableProps) {
         </thead>
 
         <tbody>
-          {games.map((game) => (
-            <tr key={`${game.date}-${game.homeTeam}-${game.awayTeam}`}>
-              <td>{game.date}</td>
-              <td>{game.season}</td>
-              <td>{game.week}</td>
-              <td>{game.homeTeam}</td>
-              <td>{game.awayTeam}</td>
-              <td className="score-home">{game.homeScore}</td>
-              <td className="score-away">{game.awayScore}</td>
-              <td>{game.favorite}</td>
-              <td className={game.spread.startsWith("+") ? "spread-positive" : "spread-negative"}>
-                {game.spread}
-              </td>
-              <td>{game.overUnder}</td>
+          {games.slice(0, 8).map((game) => (
+            <tr key={game.id}>
+              <td>{game.scheduleDate}</td>
+              <td>{game.scheduleSeason}</td>
+              <td>{game.scheduleWeek}</td>
+              <td>{game.teamHome}</td>
+              <td>{game.teamAway}</td>
+              <td className="home-score">{game.scoreHome}</td>
+              <td className="away-score">{game.scoreAway}</td>
+              <td>{game.teamFavoriteId ?? "N/A"}</td>
+              <td>{game.spreadFavorite ?? "N/A"}</td>
+              <td>{game.overUnderLine ?? "N/A"}</td>
               <td>{game.stadium}</td>
             </tr>
           ))}
