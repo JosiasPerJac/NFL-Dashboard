@@ -88,49 +88,6 @@ Este archivo contiene información histórica de partidos de la NFL, incluyendo 
 
 ---
 
-## Estructura del proyecto
-
-NFL-Dashboard/
-├── data/
-│   ├── nfl_games_clean.json
-│   ├── nfl_teams.csv
-│   └── spreadspoke_scores.csv
-│
-├── scripts/
-│   ├── convertCsvToJson.cjs
-│   └── uploadGamesToFirestore.mjs
-│
-├── src/
-│   ├── assets/
-│   │   ├── nfl-logo.png
-│   │   ├── sidebar-stadium.jpg
-│   │   └── hero-stadium.jpg
-│   │
-│   ├── firebase/
-│   │   └── firebaseConfig.ts
-│   │
-│   ├── services/
-│   │   └── gamesService.ts
-│   │
-│   ├── types/
-│   │   └── nflGame.ts
-│   │
-│   ├── utils/
-│   │   └── dashboardStats.ts
-│   │
-│   ├── App.tsx
-│   ├── App.css
-│   ├── index.css
-│   └── main.tsx
-│
-├── .env.local
-├── .gitignore
-├── package.json
-├── vite.config.ts
-└── README.md
-
----
-
 ## Variables de entorno
 
 El proyecto utiliza Firebase, por lo que se debe crear un archivo .env.local en la raíz del proyecto.
